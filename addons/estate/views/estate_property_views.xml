@@ -1,0 +1,70 @@
+<odoo><data>
+    <record id="estate_property_action" model="ir.actions.act_window">
+        <field name="name">განცხადებები.</field>
+        <field name="res_model">estate.property</field>
+        <field name="view_mode">tree,form</field>
+</record>
+    <!-- უძრავი ქონების მოდელისთვის გაწერილი view რომელსაც გამოაქვს მთავარ გვერდზე field-ები (სახელი,ფასი და ა.შ -->
+        <record id="view_estate_property_tree" model="ir.ui.view">
+
+            <field name="name">estate.property.tree</field>
+            <field name="model">estate.property</field>
+            <field name="arch" type="xml">
+
+                <tree string="უძრავი ქონების პარამეტრები">
+                    <field name="state"/>
+                    <field name="name"/>
+                    <field name="postcode"/>
+                    <field name="bedrooms"/>
+                    <field name="living_area"/>
+                    <field name="selling_price"/>
+                    <field name="date_availability"/>
+                </tree>
+            </field>
+        </record>
+<!-- უძრავი ქონების პარამეტრების შესავსები ფორმა -->
+<record id="view_estate_property_form" model="ir.ui.view">
+    <field name="name">estate.property.form</field>
+    <field name="model">estate.property</field>
+    <field name="arch" type="xml">
+        <form string="უძრავი ქონება">
+    <sheet>
+        <group>
+            <h1 style="display:block; width:100%;">
+                <field name="name" placeholder="შეიყვანეთ სახელი.."/>
+            </h1>
+            <group>
+                <field name="state"/>
+                <field name="postcode"/>
+                <field name="date_availability"/>
+            </group>
+            <group>
+                <field name="selling_price"/>
+                <!-- უნდა დაემატოს სამომავლოდ ქონების ფასის დადება სხვადასხვა ვალუტაში -->
+            </group>
+            <notebook>
+                <!-- notebook-ის პირველი გვერდი, სადაც მოცემული არის უძრავი ქონების მახასიათებლები -->
+                <page string="აღწერა">
+                    <field name="description" placeholder="შეიყვანეთ აღწერა.."/>
+                    <group>
+                        <field name="postcode"/>
+                        <field name="bedrooms"/>
+                        <field name="living_area"/>
+                        <field name="facades"/>
+                        <field name="garage"/>
+                        <field name="garden"/>
+                        <field name="garden_area"/>
+                    </group>
+                </page>
+                <!-- notebook-ის მეორე გვერდი სადაც დაემატება სამომავლოდ ქონების გალერია -->
+                <page string="გალერია">
+                <!-- დაემატება სურათების ჩამატების ფუნქცია სამომავლოდ -->
+                </page>
+            </notebook>
+        </group>
+    </sheet>
+</form>
+    </field>
+</record>
+
+</data></odoo>

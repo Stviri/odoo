@@ -1,0 +1,7 @@
+<odoo><data>
+    <menuitem id="estate_menu_root" name="უძრავი ქონება">
+    <menuitem id="estate_first_level_menu" name="მენიუ">
+        <menuitem id="estate_property_menu_action" action="estate_property_action"/>
+    </menuitem>
+</menuitem>
+</data></odoo>
